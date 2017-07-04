@@ -1,0 +1,21 @@
+﻿<mui:ModernWindow x:Class="GeekAuctionDatabaseEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+        Title="Гик-Аукцион" IsTitleVisible="True"
+        ContentSource="/Pages/KnownPeople.xaml" Icon="logo.ico" mui:ModernFrame.KeepAlive="True" Width="1200">
+
+    <mui:ModernWindow.MenuLinkGroups>
+        <mui:LinkGroup DisplayName="База данных">
+            <mui:LinkGroup.Links>
+                <mui:Link DisplayName="Известные личности" Source="/Pages/KnownPeople.xaml" />
+            </mui:LinkGroup.Links>
+        </mui:LinkGroup>
+        <!--<mui:LinkGroup DisplayName="Аукцион">
+            <mui:LinkGroup.Links>
+                <mui:Link DisplayName="Выбор аукциона" Source="/Pages/Home.xaml" />
+                <mui:Link DisplayName="Online-наблюдение" Source="/Pages/Home.xaml" />
+            </mui:LinkGroup.Links>
+        </mui:LinkGroup>-->
+    </mui:ModernWindow.MenuLinkGroups>
+</mui:ModernWindow>
