@@ -1,0 +1,34 @@
+version: '{build}'
+
+image:
+  - Visual Studio 2013
+
+configuration:
+  - Release
+
+build:
+  project: GeekAuction.sln
+  verbosity: minimal
+  
+before_build:
+  - nuget restore
+
+after_build: >
+  7z a GeekAuction.zip
+  "%APPVEYOR_BUILD_FOLDER%\bin\%CONFIGURATION%\*.dll"
+  "%APPVEYOR_BUILD_FOLDER%\bin\%CONFIGURATION%\*.json"
+  "%APPVEYOR_BUILD_FOLDER%\bin\%CONFIGURATION%\*.ico"
+  "%APPVEYOR_BUILD_FOLDER%\bin\%CONFIGURATION%\*.exe"
+
+artifacts:
+  - path: GeekAuction.zip
+
+deploy:
+  release: $(appveyor_repo_tag_name)
+  provider: GitHub
+  auth_token:
+    secure: QxmeJaZABwZOuoi3srTFTUYekwKE4LEkb4s+2GObE33tuw9Y2t6+wH/z3kJO/9de
+  draft: false
+  prerelease: false
+  on:
+    appveyor_repo_tag: true
