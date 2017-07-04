@@ -335,13 +335,13 @@ namespace GeekAuctionDatabaseEditor.Pages {
             {
                 selected.ApproveComment += "\r\n" + toMerge.ApproveComment;
             }
-            if (String.IsNullOrWhiteSpace(selected.BanComment))
+            if (String.IsNullOrWhiteSpace(selected.SwindlerComment))
             {
-                selected.BanComment = toMerge.BanComment;
+                selected.SwindlerComment = toMerge.SwindlerComment;
             }
             else
             {
-                selected.BanComment += "\r\n" + toMerge.BanComment;
+                selected.SwindlerComment += "\r\n" + toMerge.SwindlerComment;
             }
             if (String.IsNullOrWhiteSpace(selected.BlacklistComment))
             {
@@ -352,7 +352,7 @@ namespace GeekAuctionDatabaseEditor.Pages {
                 selected.BlacklistComment += "\r\n" + toMerge.BlacklistComment;
             }
             selected.Approved |= toMerge.Approved;
-            selected.Banned |= toMerge.Banned;
+            selected.Swindler |= toMerge.Swindler;
             selected.Blacklist |= toMerge.Blacklist;
 
             var persons = ((KnownPeopleModel)DataContext).Persons;
@@ -475,8 +475,8 @@ namespace GeekAuctionDatabaseEditor.Pages {
 
         private bool   approved;
         private string approveComment;
-        private bool   banned;
-        private string banComment;
+        private bool   swindler;
+        private string swindlerComment;
         private bool   blacklist;
         private string blacklistComment;
         private int    pluses;
@@ -512,10 +512,10 @@ namespace GeekAuctionDatabaseEditor.Pages {
             get { return approveComment; }
             set { approveComment = value; OnPropertyChanged("ApproveComment"); }
         }
-        public string BanComment
+        public string SwindlerComment
         {
-            get { return banComment; }
-            set { banComment = value; OnPropertyChanged("BanComment"); }
+            get { return swindlerComment; }
+            set { swindlerComment = value; OnPropertyChanged("SwindlerComment"); }
         }
         public string BlacklistComment
         {
@@ -527,10 +527,10 @@ namespace GeekAuctionDatabaseEditor.Pages {
             get { return approved; }
             set { approved = value; OnPropertyChanged("Approved"); }
         }
-        public bool Banned
+        public bool Swindler
         {
-            get { return banned; }
-            set { banned = value; OnPropertyChanged("Banned"); }
+            get { return swindler; }
+            set { swindler = value; OnPropertyChanged("Swindler"); }
         }
         public bool Blacklist
         {
@@ -607,8 +607,8 @@ namespace GeekAuctionDatabaseEditor.Pages {
                     {
                         return true;
                     }
-                    if (!String.IsNullOrWhiteSpace(person.BanComment) &&
-                        person.BanComment.ToLower().Contains(this.filterText.ToLower()))
+                    if (!String.IsNullOrWhiteSpace(person.SwindlerComment) &&
+                        person.SwindlerComment.ToLower().Contains(this.filterText.ToLower()))
                     {
                         return true;
                     }

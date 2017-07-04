@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:l="clr-namespace:GeekAuctionDatabaseEditor.Pages"
              mc:Ignorable="d" 
-             d:DesignHeight="618" d:DesignWidth="800" Loaded="Form_Loaded">
+             d:DesignHeight="618" d:DesignWidth="1129" Loaded="Form_Loaded">
 
     <Grid Style="{StaticResource ContentRoot}">
 
@@ -89,9 +89,9 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn     Header="Репутация"   Binding="{Binding Path=Reputation}"   MinWidth="50" />
+                <DataGridTextColumn     Header="Реп."        Binding="{Binding Path=Reputation}"   MinWidth="50" />
                 <DataGridCheckBoxColumn Header="Подтв."      Binding="{Binding Path=Approved}"     MinWidth="50" />
-                <DataGridCheckBoxColumn Header="Бан"         Binding="{Binding Path=Banned}"       MinWidth="50" />
+                <DataGridCheckBoxColumn Header="Мош."        Binding="{Binding Path=Swindler}"     MinWidth="50" />
                 <DataGridCheckBoxColumn Header="ЧC"          Binding="{Binding Path=Blacklist}"    MinWidth="50" />
             </DataGrid.Columns>
             <!--<DataGrid.RowDetailsTemplate>
@@ -272,15 +272,15 @@
                                 <Border Height="10" BorderBrush="Transparent" />
 
                                 <StackPanel>
-                                    <CheckBox Content="Забанен" IsChecked="{Binding Selected.Banned}" />
-                                    <TextBox TextWrapping="Wrap" AcceptsReturn="True" MinLines="2" Text="{Binding Selected.BanComment}" Visibility="{Binding Path=Selected.Banned, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                    <CheckBox Content="В черном списке" IsChecked="{Binding Selected.Blacklist}" />
+                                    <TextBox TextWrapping="Wrap" AcceptsReturn="True" MinLines="2" Text="{Binding Selected.BlacklistComment}" Visibility="{Binding Path=Selected.Blacklist, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                 </StackPanel>
 
                                 <Border Height="10" BorderBrush="Transparent" />
 
                                 <StackPanel>
-                                    <CheckBox Content="В черном списке" IsChecked="{Binding Selected.Blacklist}" />
-                                    <TextBox TextWrapping="Wrap" AcceptsReturn="True" MinLines="2" Text="{Binding Selected.BlacklistComment}" Visibility="{Binding Path=Selected.Blacklist, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                    <CheckBox Content="Мошенник" IsChecked="{Binding Selected.Swindler}" />
+                                    <TextBox TextWrapping="Wrap" AcceptsReturn="True" MinLines="2" Text="{Binding Selected.SwindlerComment}" Visibility="{Binding Path=Selected.Swindler, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                 </StackPanel>
 
                                 <Border Height="20" BorderBrush="Transparent" />
